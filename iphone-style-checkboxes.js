@@ -36,11 +36,17 @@
         });
         
         if (is_onstate) {
-          offlabel.animate({ opacity: 0 }, 200);
+					onlabel.show();
           onlabel.animate({ opacity: 1 }, 200);
+					offlabel.animate({ opacity: 0 }, 200, function(){
+						offlabel.hide();
+					});
         } else {
+					offlabel.show();
           offlabel.animate({ opacity: 1 }, 200);
-          onlabel.animate({ opacity: 0 }, 200);
+					onlabel.animate({ opacity: 0 }, 200, function(){
+						onlabel.hide();
+					});
         }
         
         elem.attr('checked', !is_onstate);
